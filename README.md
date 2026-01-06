@@ -23,11 +23,6 @@ Historial de operaciones
 - **HTML5**
 - **CSS3**
 - **JavaScript**
+## Ingresa al link y puedes usar la calculadora
+https://andresloja16.github.io/Calculadora/
 
-## Vista previa
-![alt text](image-1.png)
-
-## Cómo usar el proyecto
-
-1. Clona el repositorio:
-https://github.com/andresloja16/Calculadora.git
