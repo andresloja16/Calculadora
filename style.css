@@ -24,11 +24,13 @@ body {
     justify-content: center;
     align-items: center;
     color: var(--text-primary);
-    padding: 20px;
+    padding: 10px;
+    /* Reduced padding */
 }
 
 .app-title {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    /* Even smaller margin */
     text-align: center;
 }
 
