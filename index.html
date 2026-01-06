@@ -27,28 +27,33 @@
 </div>
 
     <div class="buttons">
-      <button>DEL</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button>/</button>
+      <!-- Fila 1: Operaciones especiales -->
+      <button class="btn-clear secondary">C</button>
+      <button class="btn-del secondary">DEL</button>
+      <button class="btn-operator secondary" data-val="/">/</button>
+      <button class="btn-operator secondary" data-val="*">*</button>
 
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>*</button>
+      <!-- Fila 2: 7-9 y Minus -->
+      <button class="btn-num">7</button>
+      <button class="btn-num">8</button>
+      <button class="btn-num">9</button>
+      <button class="btn-operator secondary" data-val="-">-</button>
 
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>-</button>
+      <!-- Fila 3: 4-6 y Plus -->
+      <button class="btn-num">4</button>
+      <button class="btn-num">5</button>
+      <button class="btn-num">6</button>
+      <button class="btn-operator secondary" data-val="+">+</button>
 
-      <button>0</button>
-      <button>.</button>
-      <button>=</button>
-      <button>+</button>
+      <!-- Fila 4: 1-3 y Equal -->
+      <button class="btn-num">1</button>
+      <button class="btn-num">2</button>
+      <button class="btn-num">3</button>
+      <button class="btn-equal primary">=</button>
 
-      <button class="clear">C</button>
+      <!-- Fila 5: 0 y Punto (repartidos) -->
+      <button class="btn-num btn-zero">0</button>
+      <button class="btn-num">.</button>
     </div>
   </div>
   <script src="script.js"></script>

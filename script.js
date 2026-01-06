@@ -8,6 +8,7 @@ const historyBox = document.getElementById("history");
 toggleHistoryBtn.addEventListener("click", () => {
     historyBox.classList.toggle("hidden");
 });
+
 let currentOperation = "";
 
 // CLICK CON EL MOUSE
@@ -15,7 +16,9 @@ buttons.forEach(button => {
     button.addEventListener("click", () => {
         if (button.id === "toggle-history") return;
 
-        handleInput(button.textContent);
+        // Si el botón tiene data-val (operadores), usamos eso. Si no, su textContent.
+        const value = button.dataset.val || button.textContent;
+        handleInput(value);
     });
 });
 
@@ -30,6 +33,7 @@ document.addEventListener("keydown", (event) => {
         handleInput(key);
     }
     else if (key === "Enter") {
+        event.preventDefault();
         handleInput("=");
     }
     else if (key === "Backspace") {
@@ -42,7 +46,6 @@ document.addEventListener("keydown", (event) => {
 
 // FUNCIÓN CENTRAL
 function handleInput(value) {
-
     // LIMPIAR TODO
     if (value === "C") {
         currentOperation = "";
@@ -55,12 +58,15 @@ function handleInput(value) {
     if (value === "DEL") {
         currentOperation = currentOperation.slice(0, -1);
         operationDisplay.textContent = currentOperation;
+        if (currentOperation === "") resultDisplay.textContent = "0";
         return;
     }
 
     // CALCULAR
     if (value === "=") {
+        if (!currentOperation) return;
         try {
+            // Reemplazamos los símbolos visuales si fuera necesario (aunque aquí usamos los mismos)
             const result = eval(currentOperation);
 
             // mostrar resultado
@@ -69,18 +75,15 @@ function handleInput(value) {
             // guardar en historial
             const li = document.createElement("li");
             li.textContent = `${currentOperation} = ${result}`;
-
-            // GUARDAR OPERACIÓN
             li.dataset.operation = currentOperation;
 
             // CLICK PARA REUTILIZAR
             li.addEventListener("click", () => {
                 currentOperation = li.dataset.operation;
                 operationDisplay.textContent = currentOperation;
-                resultDisplay.textContent = "";
+                resultDisplay.textContent = result; // Mantenemos el resultado visual
+                historyBox.classList.add("hidden");
             });
-
-            historyList.prepend(li);
 
             historyList.prepend(li);
 
@@ -89,7 +92,14 @@ function handleInput(value) {
         }
         return;
     }
-    // AGREGAR NÚMEROS Y OPERADORES
-    currentOperation += value;
+
+    // EVITAR MÚLTIPLES OPERADORES SEGUIDOS (Básico)
+    const lastChar = currentOperation.slice(-1);
+    if (["+", "-", "*", "/"].includes(value) && ["+", "-", "*", "/"].includes(lastChar)) {
+        currentOperation = currentOperation.slice(0, -1) + value;
+    } else {
+        currentOperation += value;
+    }
+
     operationDisplay.textContent = currentOperation;
 }
