@@ -23,6 +23,6 @@ Historial de operaciones
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-## Ingresa al link y puedes usar la calculadora
+## Ingresa al link y puedes usarlo
 https://andresloja16.github.io/Calculadora/
 
