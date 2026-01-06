@@ -1,4 +1,4 @@
-# Calculadora Moderna Responsive
+# Calculadora Moderna
 
 Una **calculadora web moderna**, elegante y totalmente **responsive**, creada con **HTML, CSS y JavaScript**.
 Funciona perfectamente en **celulares  y laptops**, con animaciones.
