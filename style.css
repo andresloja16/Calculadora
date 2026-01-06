@@ -20,27 +20,29 @@ body {
     min-height: 100vh;
     background: var(--bg-gradient);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--text-primary);
+    padding: 20px;
 }
 
 .app-title {
-    position: absolute;
-    top: 40px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .app-title h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 200;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
     text-transform: uppercase;
     opacity: 0.8;
 }
 
 .calculator {
     width: 380px;
+    max-width: 100%;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
@@ -191,6 +193,7 @@ button:active {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -202,10 +205,12 @@ button:active {
         width: 90%;
         padding: 20px;
     }
+
     .buttons {
         grid-template-rows: repeat(5, 60px);
         gap: 10px;
     }
+
     .result {
         font-size: 2.5rem;
     }
